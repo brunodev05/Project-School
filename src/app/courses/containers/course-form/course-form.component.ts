@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../../model/course';
+import { Lesson } from '../../model/lesson';
 
 @Component({
   selector: 'app-course-form',
@@ -40,6 +41,15 @@ export class CourseFormComponent {
       _id: course._id,
       name: course.name,
       category: course.category,
+    });
+    console.log(course);
+  }
+
+  private createLesson(lesson: Lesson = { id: '', name: '', youtubeUrl: '' }) {
+    return this.formBuilder.group({
+      id: [lesson.id],
+      name: [lesson.name],
+      youtubeUrl: [lesson.youtubeUrl],
     });
   }
 
